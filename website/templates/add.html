@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block 'content' %}
 <center>
+
     {% if my_answer %}
     <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
         <strong>{{ my_answer }} </strong>
@@ -9,10 +12,11 @@
         </button>
     </div>
     {% endif %}
-    <h3> {{ num_1 }} + {{ num_2 }}</h3>
+    <h2><img src="static/images/{{ num_1 }}.png"> + <img src="static/images/{{ num_2 }}.png">
+    </h2>
 
     <br />
-    <form action="{% url 'add' %}" method="POST">
+    <form action=" {% url 'add' %}" method="POST">
         {% csrf_token %}
 
         <div class="form-group">
@@ -25,5 +29,3 @@
     </form>
 </center>
 {% endblock %}
-
-pr
